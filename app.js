@@ -5,10 +5,11 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const storage = require('./middleware/multer-config2');*/
 
+
+
 require('dotenv').config({path: './.env'});
 
-//const characterRoutes = require('./routes/characters.routes');
-//const userRoutes = require('./routes/user.route');
+const userRoutes = require('./routes/user.route');
 
 mongoose.connect(
   process.env.MONGODB_URL, //Add your connection string from MongoDB
@@ -28,11 +29,6 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-//app.use('/assets/imgs/', express.static(path.join(__dirname, 'assets/imgs/')));
 
-
-//const upload = multer({dest: 'assets/imgs'})
-//app.use('/api', characterRoutes);
-//app.use('/api/auth', userRoutes);
-
+app.use('/api/auth', userRoutes);
 module.exports = app;

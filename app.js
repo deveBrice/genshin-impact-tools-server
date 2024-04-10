@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-/*const path = require('path');
-const multer = require('multer');
+const path = require('path');
+/*const multer = require('multer');
 const storage = require('./middleware/multer-config2');*/
 
 
@@ -32,5 +32,9 @@ app.use(bodyParser.json());
 
 app.use('/api', characterRoutes);
 app.use('/api/auth', userRoutes);
+app.use('/assets/imgs/characters', express.static(path.join(__dirname, 'assets/imgs/characters')));
+app.use('/assets/imgs/weapons', express.static(path.join(__dirname, 'assets/imgs/weapons')));
+app.use('/assets/imgs/elements', express.static(path.join(__dirname, 'assets/imgs/elements')));
+
 
 module.exports = app;

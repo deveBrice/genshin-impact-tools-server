@@ -11,4 +11,5 @@ router.post('/character/create', auth, multer, characterCtrl.createCharacter);
 router.post('/uploadPicture', auth, multer, uploadPictureCtrl.uploadPicture);
 router.get('/character/readone/:id', auth, characterCtrl.getOneCharacter);
 router.put('/character/update/:id', auth, multer, characterCtrl.updateCharacter);
+router.delete('/character/delete/:id', auth, characterCtrl.deleteCharacter);
 module.exports = router;

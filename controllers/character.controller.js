@@ -85,3 +85,19 @@ const Character = require('../models/character.model');
       }
     );
   };
+
+  exports.deleteCharacter = (req, res, next) => {
+    Character.deleteOne({_id: req.params.id}).then(
+      () => {
+        res.status(200).json({
+          message: "Character deleted successfully!"
+        })
+      }
+    ).catch(
+      (error) => {
+        res.status(400).json({
+          error: error
+        })
+      }
+    )
+  }

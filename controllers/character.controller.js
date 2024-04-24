@@ -47,3 +47,41 @@ const Character = require('../models/character.model');
       }
     );
   };
+
+  exports.getOneCharacter = (req, res, next) => {
+    Character.findOne({
+      _id: req.params.id
+    }).then(
+      (character) => {
+        res.status(200).json(character);
+      }
+    ).catch(
+      (error) => {
+        res.status(404).json({
+          error: error
+        });
+      }
+    );
+  };
+  
+  exports.updateCharacter = (req, res, next) => {
+    const characterObject = JSON.parse(req.body.character);
+
+    const character = new Character({
+      _id: req.params.id,
+      ...characterObject,
+    });
+    Character.updateOne({ _id: req.params.id }, character).then(
+      () => {
+        res.status(201).json({
+          message: 'Character updated successfully!'
+        });
+      }
+    ).catch(
+      (error) => {
+        res.status(400).json({
+          error: error
+        });
+      }
+    );
+  };

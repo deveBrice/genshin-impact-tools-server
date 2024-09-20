@@ -11,7 +11,7 @@ const characterSchema = mongoose.Schema({
     },
     weapon: { type: String, required: true },
     rarety: { type: String, required: true },
-    location: { type: String, required: true },
+    region: { type: String, required: true },
     color: { type: String, required: true },
     weaponPicture: {
         url: { type: String, required: true },

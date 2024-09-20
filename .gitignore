@@ -1,2 +1,6 @@
 node_modules
 .env
+models/customer.model.js
+models/identifier.model.js
+memo.txt
+character-details.json
